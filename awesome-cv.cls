@@ -529,11 +529,20 @@
 
 % Define a section for CV
 % Usage: \cvsection{<section-title>}
-\newcommand{\cvsection}[1]{%
-  \vspace{\acvSectionTopSkip}
-  \sectionstyle{#1}
-  \phantomsection
-  \color{gray}\vhrulefill{0.9pt}
+\newcommand{\cvsection}[1]{
+    \vspace{7pt}\hspace{-15pt}
+    {\setlength{\extrarowheight}{10pt}
+        \begin{tabularx}{1.000\linewidth}{lX}
+            \textcolor{black}{
+                \LARGE{
+                    \textbf{
+                        \uppercase{#1}
+                    }
+                }
+            } &  \\
+            \Cline{1-2} 
+        \end{tabularx}
+    }
 }
 
 % Define a subsection for CV
