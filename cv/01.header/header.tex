@@ -1,0 +1,38 @@
+
+\newcommand{\cvheader}[7]
+{
+\colorbox{softcol}{
+    \makebox[1.5\linewidth][c]{
+        \hspace{-0.2\linewidth}
+        \colorbox{accent}{
+            \begin{minipage}[t]{0.1\textwidth}
+                \HUGE A\\A
+            \end{minipage}
+        }
+        \begin{minipage}[t]{0.48\textwidth}
+            \HUGE{
+                \textcolor{black}{\textsc{\textbf{{#1}}}} } \\ 
+        \end{minipage}
+        \textcolor{softcol}{\rule[-1mm]{1mm}{3cm}}
+        \begin{minipage}[t]{0.48\textwidth}
+        % \parbox[b]{5cm}{
+            \vspace{-0.1\linewidth}
+            \begin{flushright}
+            \begin{tabular}{r@{~}l@{~}l}
+                {#2} & \seticon{faMapMarker} \\
+                {#3} & \seticon{faGlobe} \\
+                {#4} & \seticon{faPhone} \\
+                \href{mailto:{#5}}{\underline{{#5}}} & \seticon{faAt} \\
+                \href{{#6}}{\underline{#6}}  & \seticon{faChain} \\
+                \href{{#7}}{\underline{#7}} & \seticon{faLinkedinSquare} \\
+            \end{tabular}
+            \end{flushright}
+        % }
+        \end{minipage}
+    }
+}
+}
+
+\vspace*{-2.5cm}   
+\hspace{-0.25\linewidth}
+\cvheader{Miguel\\Nobre da Costa}{Lisbon, Portugal}{Portuguese}{+351 961 872 025}{miguel.nobre.costa@gmail.com}{http://users.isr.ist.utl.pt/~mncosta/}{https://www.linkedin.com/in/miguelncosta/}
