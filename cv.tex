@@ -1,72 +1,78 @@
-\documentclass[a4paper,11pt]{article}	
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
 
 
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
 
-\usepackage[utf8]{inputenc}
-%\usepackage[light]{CrimsonPro}
-\usepackage[T1]{fontenc}
-%% The font package uses mweights.sty which has som issues with the
-%% \normalfont command. The following two lines fixes this issue.
-\let\oldnormalfont\normalfont
-\def\normalfont{\oldnormalfont\mdseries}	
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
-\usepackage{moresize}
-\usepackage{enumitem}
-\usepackage{titlesec}
-%define page styles using geometry
-\usepackage[a4paper]{geometry}		
-% for example, change the margins to 2 inches all round
-\geometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm} 
-\usepackage{multicol}			
-\usepackage{multirow}
-\usepackage{array}
-\usepackage{tabularx}
+% Specify the location of the included fonts
+\fontdir[fonts/]
 
-\newcolumntype{x}[1]{%
->{\raggedleft\hspace{0pt}}p{#1}}%
-%use customized header
-\usepackage{fancyhdr}
-\usepackage{graphicx}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{tikz}				
-\usetikzlibrary{shapes, backgrounds,mindmap, trees}
-\usepackage{fontawesome}
-\usepackage{hyperref}
-\usepackage{scrextend}
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+%\colorlet{awesome}{awesome-red}
+\colorlet{awesome}{awesome-skyblue}
+% Uncomment if you would like to specify your own color
+%\definecolor{awesome}{HTML}{7F00FF}
 
-\usepackage{color}
-\usepackage{colortbl}
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
 
-%accent color
-\definecolor{accent2}{RGB}{33,128,188}
-%\definecolor{accent}{RGB}{255,156,33}
-\definecolor{accent}{RGB}{192,0,0}
-\definecolor{bgcol}{RGB}{110,110,110}
-\definecolor{softcol}{RGB}{230,230,230}
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
 
-%less space between header and content
-\setlength{\headheight}{-5pt}	
-\setlength{\parindent}{0mm}
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
-% remove top header line
-\renewcommand{\headrulewidth}{0pt} 
 
-%remove botttom header line
-\renewcommand{\footrulewidth}{0pt}	  	
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+%\photo[rectangle,edge,right]{./examples/profile}
+\name{Olivier}{Rodomond}
+%\position{Api Product Owner{\enskip\cdotp\enskip}Software Architect}
+\position{Api Specialist Consultant}
+\address{International \\ Bangkok - Thailand}
+%\address{Bangkok - Thailand}
 
-%remove section num		
-\renewcommand{\thesection}{}	
+% \mobile{(+66) 909067058}
+\email{hi@olivierodo.me}
+\homepage{www.olivierodo.me}
+\github{olivierodo}
+\linkedin{olivierodo}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+\twitter{@olivierodo}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \extrainfo{French}
 
-\newcommand{\seticon}[1]{\textcolor{accent}{\csname #1\endcsname}}
-\newcommand{\seticonwhite}[1]{\textcolor{white}{\csname #1\endcsname}}
-
-\newcommand\reverselabel[1]{%
-  \def\theenumi{}%
-  \renewcommand\makelabel{\makebox[\dimexpr\labelwidth-3pt\relax][r]{%
-    \the\numexpr#1-\value{enumi}+1\relax}}}%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\quote{``Perfection is Achieved Not When There Is Nothing More to Add, But When There Is Nothing Left to Take Away"}
 
 
 
@@ -83,22 +89,6 @@
   \noalign{\global\setlength\Origarrayrulewidth{\arrayrulewidth}}%
   \noalign{\global\setlength\arrayrulewidth{4pt}}\arrayrulecolor{accent}\cline{#1}%
   \noalign{\global\setlength\arrayrulewidth{\Origarrayrulewidth}}%
-}
-
-\newcommand{\cvsection}[1]{
-    \vspace{7pt}\hspace{-15pt}
-    {\setlength{\extrarowheight}{10pt}
-        \begin{tabularx}{1.000\linewidth}{lX}
-            \textcolor{black}{
-                \LARGE{
-                    \textbf{
-                        \uppercase{#1}
-                    }
-                }
-            } &  \\
-            \Cline{1-2} 
-        \end{tabularx}
-    }
 }
 
 % ======================================================== %
@@ -282,18 +272,29 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{}
-\lhead{}
-\cfoot{$\cdot$ \textcolor{black}{Miguel Nobre da Costa} $\cdot$}
-\rfoot{\thepage}
 
+
+%-------------------------------------------------------------------------------
 \begin{document}
-\fontfamily{qag}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[C]
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+  {Resume automated with love using https://github.com/olivierodo/Awesome-CV-action}
+  {\thepage}
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
 
 
-\input{cv/01.header/header}\\
+%\input{cv/01.header/header}\\
 \input{cv/02.summary/summary}
 \input{cv/03.Education/education}
 \input{cv/04.experience/experience}
@@ -306,5 +307,14 @@
 \input{cv/11.languages/main}
 \input{cv/12.schools/main}
 \input{cv/13.volunteer/main}
+
+
+
+\input{resume/summary.tex}
+\input{resume/experience.tex}
+\input{resume/personalproject.tex}
+\input{resume/honors.tex}
+\input{resume/education.tex}
+\input{resume/extracurricular.tex}
 
 \end{document}
