@@ -23,12 +23,16 @@
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
-\colorlet{awesome}{awesome-red}
+%\colorlet{awesome}{awesome-red}
+\colorlet{awesome}{awesome-skyblue}
 % Uncomment if you would like to specify your own color
-% \definecolor{awesome}{HTML}{CA63A8}
+%\definecolor{awesome}{HTML}{7F00FF}
 
 % Colors for text
 % Uncomment if you would like to specify your own color
@@ -36,7 +40,6 @@
 % \definecolor{text}{HTML}{333333}
 % \definecolor{graytext}{HTML}{5D5D5D}
 % \definecolor{lighttext}{HTML}{999999}
-% \definecolor{sectiondivider}{HTML}{5D5D5D}
 
 % Set false if you don't want to highlight section with awesome color
 \setbool{acvSectionColorHighlight}{true}
@@ -50,36 +53,33 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
-% \photo[rectangle,edge,right]{./examples/profile}
-\name{Byungjin}{Park}
-\position{Software Architect{\enskip\cdotp\enskip}Security Expert}
-\address{42-8, Bangbae-ro 15-gil, Seocho-gu, Seoul, 00681, Rep. of KOREA}
+%\photo[rectangle,edge,right]{./examples/profile}
+\name{Olivier}{Rodomond}
+%\position{Api Product Owner{\enskip\cdotp\enskip}Software Architect}
+\position{Api Specialist Consultant}
+\address{International \\ Bangkok - Thailand}
+%\address{Bangkok - Thailand}
 
-\mobile{(+82) 10-9030-1843}
-\email{posquit0.bj@gmail.com}
-%\dateofbirth{January 1st, 1970}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
+% \mobile{(+66) 909067058}
+\email{hi@olivierodo.me}
+\homepage{www.olivierodo.me}
+\github{olivierodo}
+\linkedin{olivierodo}
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
-% \twitter{@twit}
+\twitter{@olivierodo}
 % \skype{skype-id}
 % \reddit{reddit-id}
-% \medium{madium-id}
-% \kaggle{kaggle-id}
-% \googlescholar{googlescholar-id}{name-to-display}
-%% \firstname and \lastname will be used
-% \googlescholar{googlescholar-id}{}
-% \extrainfo{extra information}
+% \extrainfo{French}
 
-\quote{``Be the change that you want to see in the world."}
+\quote{``Perfection is Achieved Not When There Is Nothing More to Add, But When There Is Nothing Left to Take Away"}
+
 
 
 %-------------------------------------------------------------------------------
 \begin{document}
 
-% Print the header with above personal information
+% Print the header with above personal informations
 % Give optional argument to change alignment(C: center, L: left, R: right)
 \makecvheader[C]
 
@@ -87,9 +87,8 @@
 % Leave any of these blank if they are not needed
 \makecvfooter
   {\today}
-  {Byungjin Park~~~·~~~Résumé}
+  {Resume automated with love using https://github.com/olivierodo/Awesome-CV-action}
   {\thepage}
-
 
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
@@ -97,13 +96,9 @@
 %-------------------------------------------------------------------------------
 \input{resume/summary.tex}
 \input{resume/experience.tex}
+\input{resume/personalproject.tex}
 \input{resume/honors.tex}
-\input{resume/presentation.tex}
-\input{resume/writing.tex}
-\input{resume/committees.tex}
 \input{resume/education.tex}
 \input{resume/extracurricular.tex}
 
-
-%-------------------------------------------------------------------------------
 \end{document}
