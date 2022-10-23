@@ -153,7 +153,7 @@
 
 % Awesome section color
 \def\@sectioncolor#1#2#3{%
-  \ifbool{acvSectionColorHighlight}{{\color{awesome}#1#2#3}}{#1#2#3}%
+  \ifbool{acvSectionColorHighlight}{{\color{text}#1#2#3}}{#1#2#3}%
 }
 
 
@@ -218,6 +218,15 @@
 \newcommand*{\honorpositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\honordatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
 \newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+
+% For elements of teaching
+\newcommand*{\teachingtitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\teachingpositionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\teachingdatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+\newcommand*{\teachinglocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
+
+% For elements of publications
+\newcommand*{\publicationtitlestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
 
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
@@ -533,8 +542,9 @@
   \vspace{\acvSectionTopSkip}
   \sectionstyle{#1}
   \phantomsection
-  \color{gray}\vhrulefill{0.9pt}
+  \color{awesome}\vhrulefill{0.9pt}
 }
+
 
 % Define a subsection for CV
 % Usage: \cvsubsection{<subsection-title>}
@@ -587,6 +597,20 @@
       {\entrypositionstyle{#6} \\ }
   \end{tabular*}%
 }
+% Define an entry of cv information
+% Usage: \cventryshort{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\cventryshort}[5]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2#3}
+      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\
+  \end{tabular*}%
+}
 
 % Define an environment for cvsubentry
 \newenvironment{cvsubentries}{%
@@ -629,6 +653,61 @@
 \newcommand*{\cvhonor}[4]{%
   \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
 }
+
+% Define an environment for cvservice
+\newenvironment{cvservices}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.0cm} R{2.5cm}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(honor, award or something else)
+% Usage: \cvservice{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\cvservice}[4]{%
+  \honordatestyle{#4}, \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
+}
+
+% Define an environment for cvteaching
+\newenvironment{cvteachings}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{2.2cm} L{\textwidth - 4.8cm} R{2.5cm}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(teaching)
+% Usage: \cvteaching{<position>}{<title>}{<location>}{<date>}
+\newcommand*{\cvteaching}[4]{%
+  \teachingdatestyle{#4} & \teachingpositionstyle{#1}, \teachingtitlestyle{#2} & \teachinglocationstyle{#3} \\
+}
+
+% Define an environment for cvpublications
+\newenvironment{cvpublications}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-30pt}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{5pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.2cm} L{\textwidth - 1.2cm}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+% Define a line of cv information(publication)
+% Usage: \cvpublication{<publication>}
+\newcommand*{\cvpublication}[1]{%
+  & \publicationtitlestyle{#1}\\
+}
+
 
 % Define an environment for cvskill
 \newenvironment{cvskills}{%
