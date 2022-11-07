@@ -591,12 +591,28 @@
       {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
       {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\
     \ifempty{#6}
-      {}
-      {\entrypositionstyle{#6} \\ }
+	    {\\}
+    	{\entrypositionstyle{#6} \\ } 
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\
   \end{tabular*}%
 }
+\newcommand*{\cventryinner}[5]{%
+	\vspace{-2.0mm}
+	\setlength\tabcolsep{0pt}
+	\setlength{\extrarowheight}{0pt}
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+		\ifempty{#2#3}
+		{\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+		{\entrypositionstyle{#1} & \entrylocationstyle{#2} \\
+		 \entrypositionstyle{#5} & \entrydatestyle{#3} \\}
+%		\ifempty{#6}
+%			{\\}
+%			{\entrypositionstyle{#6} \\ } 
+		\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\
+	\end{tabular*}%
+}
+
 % Define an entry of cv information
 % Usage: \cventryshort{<position>}{<title>}{<location>}{<date>}
 \newcommand*{\cventryshort}[5]{%
