@@ -393,9 +393,9 @@
 %                Commands for utilities
 %-------------------------------------------------------------------------------
 % Use to align an element of tabular table
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 
 % Use to draw horizontal line with specific thickness
 \def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
@@ -463,7 +463,13 @@
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{http://\@homepage\@hparam}{\faHome\acvHeaderIconSep\@homepage}%
         }%
-      \ifthenelse{\isundefined{\@github}}%
+      \ifthenelse{\isundefined{\@linkedin}}%
+        {}%
+        {%
+      	  \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+      	  \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
+        }%
+  	  \ifthenelse{\isundefined{\@github}}%
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
@@ -480,12 +486,6 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://stackoverflow.com/users/\@stackoverflowid}{\faStackOverflow\acvHeaderIconSep\@stackoverflowname}%
-        }%
-      \ifthenelse{\isundefined{\@linkedin}}%
-        {}%
-        {%
-          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{https://www.linkedin.com/in/\@linkedin}{\faLinkedinSquare\acvHeaderIconSep\@linkedin}%
         }%
       \ifthenelse{\isundefined{\@twitter}}%
         {}%
@@ -593,7 +593,7 @@
       \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
     \ifempty{#6}
 	    {\\}
-    	{\entrypositionstyle{#6} \\ } 
+    	{\hspace{9pt}\entrypositionstyle{#6} \\ } 
     \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\
   \end{tabular*}%
 }
@@ -603,9 +603,9 @@
 	\setlength{\extrarowheight}{0pt}
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
 		\ifempty{#2#3}
-		{\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+		{\entrypositionstyle{#1} &  \\}
 		{\entrypositionstyle{#1} & \entrylocationstyle{#2} \\
-		 \entrypositionstyle{#5} & \entrydatestyle{#3} \\}
+		 \hspace{9pt}\entrypositionstyle{#5} & \entrydatestyle{#3} \\}
 %		\ifempty{#6}
 %			{\\}
 %			{\entrypositionstyle{#6} \\ } 
@@ -650,6 +650,32 @@
       {}
       {\multicolumn{2}{L{17.0cm}}{\subdescriptionstyle{#4}} \\}
   \end{tabular*}
+}
+
+% Define an entry of cv information
+% Usage: \cventrypresentation{<title>}{<date>}{<location>}
+\newcommand*{\cventrypresentation}[4]{%
+	\vspace{-2.0mm}
+	\setlength\tabcolsep{0pt}
+	\setlength{\extrarowheight}{0pt}
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+		\ifempty{#2#3}
+		{\entrypositionstyle{#4} & \entrydatestyle{#4} \\}
+		{\entrytitlestyle{#1}  & \entrylocationstyle{#2} \\
+		 \descriptionstyle{#4} & \entrydatestyle{#3} \\}
+	\end{tabular*}%
+}
+
+\newenvironment{cvpresentationitems}{%
+	\vspace{-4.0mm}
+	\begin{justify}
+		\begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+			\setlength{\parskip}{0pt}
+			\renewcommand{\labelitemi}{}
+		}{%
+		\end{itemize}
+	\end{justify}
+	\vspace{-4.0mm}
 }
 
 % Define an environment for cvhonor
