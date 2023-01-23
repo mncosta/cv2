@@ -161,7 +161,7 @@
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
 % Set the FontAwesome font to be up-to-date.
-\setfontfamily\FA[Path=\@fontdir]{FontAwesome}
+%\setfontfamily\FA[Path=\@fontdir]{FontAwesome}
 % Set font for header (default is Roboto)
 \newfontfamily\headerfont[
   Path=\@fontdir,
@@ -553,6 +553,13 @@
   \vspace{-3mm}
   \subsectionstyle{#1}
   \phantomsection
+}
+
+\newcommand{\cvsubsubsection}[1]{%
+	\vspace{\acvSectionContentTopSkip}
+	\vspace{-4mm}
+	\entrytitlestyle{#1}
+	\phantomsection
 }
 
 % Define a paragraph for CV
