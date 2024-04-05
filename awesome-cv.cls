@@ -589,35 +589,47 @@
 }
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
-\newcommand*{\cventry}[6]{%
+\newcommand*{\cventry}[5]{%
   \vspace{-2.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-    \ifempty{#2#3}
-      {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-      {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
-      \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
-    \ifempty{#6}
-	    {\\}
-    	{\hspace{9pt}\entrypositionstyle{#6} \\ } 
-    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}} \\
+    \ifempty{#2}
+      {\entrypositionstyle{#1} & \entrylocationstyle{#3} \\}
+      {\entrytitlestyle{#2} &  \\
+       \entrypositionstyle{#1} & \entrylocationstyle{#3} \\}
+    \ifempty{#5}
+      {\\}
+      {\hspace{9pt}\entrypositionstyle{#5} \\ }
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\
   \end{tabular*}%
 }
-\newcommand*{\cventryinner}[5]{%
-	\vspace{-2.0mm}
-	\setlength\tabcolsep{0pt}
-	\setlength{\extrarowheight}{0pt}
-	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
-		\ifempty{#2#3}
-		{\entrypositionstyle{#1} &  \\}
-		{\entrypositionstyle{#1} & \entrylocationstyle{#2} \\
-		 \hspace{9pt}\entrypositionstyle{#5} & \entrydatestyle{#3} \\}
-%		\ifempty{#6}
-%			{\\}
-%			{\entrypositionstyle{#6} \\ } 
-		\multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\
-	\end{tabular*}%
+\newcommand*{\cventrynograde}[4]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2}
+      {\entrypositionstyle{#1} & \entrylocationstyle{#3} \\}
+      {\entrytitlestyle{#2} &  \\
+       \entrypositionstyle{#1} & \entrylocationstyle{#3} \\}
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#4}} \\
+  \end{tabular*}%
+}
+
+\newcommand*{\cventryinner}[4]{%
+  \vspace{-2.0mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+    \ifempty{#2}
+      {\entrypositionstyle{#1} &  \\}
+      {\entrypositionstyle{#1} &  \entrylocationstyle{#2} \\} 
+%    \ifempty{#4}
+%      {}
+%      {\hspace{9pt}\entrypositionstyle{#4} \\ } 
+    \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#3}} \\
+  \end{tabular*}%
 }
 
 % Define an entry of cv information
