@@ -48,6 +48,7 @@
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
 
+
 %-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
 %	Comment any of the lines below if they are not required
@@ -61,15 +62,21 @@
 
 \mobile{(+351) 961872025}
 \email{miguel.nobre.costa@gmail.com}
-\homepage{users.isr.ist.utl.pt/~mncosta/}
+\homepage{mncosta.github.io}
 \linkedin{miguelncosta}
 \github{mncosta}
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
 \twitter{@miguelncosta}
+\gscholar{kiSlzroAAAAJ\&hl}
+\orcid{0000-0003-0860-7002}
+\researchgate{Miguel-Costa-33}
+
+\scopus{58828745900}
 % \skype{skype-id}
 % \reddit{reddit-id}
-% \extrainfo{French}
+
+%\extrainfo{Scopus ID: 58828745900}
 
 %\quote{``"}
 
@@ -77,6 +84,7 @@
 
 %-------------------------------------------------------------------------------
 \begin{document}
+
 
 % Print the header with above personal informations
 % Give optional argument to change alignment(C: center, L: left, R: right)
@@ -94,17 +102,27 @@
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
 \input{cv/00.summary.tex}
-\input{cv/01.experience.tex}
-\input{cv/02.education.tex}
-\pagebreak
-\input{cv/03.teaching.tex}
-\input{cv/04.publications.tex}
+\input{cv/education.tex}
+\input{cv/experience}
+\input{cv/publications}
+\input{cv/teaching}
+\input{cv/services}
+\input{cv/supervision}
+\input{cv/awards.tex}
+
 \input{cv/05.projects.tex}
-%\input{cv/06.presentations.tex}
-\input{cv/07.awards.tex}
-\input{cv/08.services.tex}
 \input{cv/09.skills.tex}
 \input{cv/10.extracurricular.tex}
 \input{cv/11.volunteering.tex}
+\pagebreak
+
+
+%\input{cv/01.experience.tex}
+%\input{cv/02.education.tex}
+%\input{cv/04.publications.tex}
+%\input{cv/06.presentations.tex}
+%\input{cv/07.awards.tex}
+%\input{cv/08.services.tex}
+
 
 \end{document}

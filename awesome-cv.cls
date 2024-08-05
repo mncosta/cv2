@@ -89,6 +89,8 @@
   pdfkeywords={}
 }
 
+\RequirePackage{academicons}
+\usepackage[hang,flushmargin]{footmisc}
 
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations
@@ -202,9 +204,12 @@
 % For elements of entry
 \newcommand*{\entrytitlestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\scshape\color{graytext} #1}}
+\newcommand*{\entrydurationstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\entrydatestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\slshape\color{graytext} #1}}
 \newcommand*{\entrylocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\slshape\color{awesome} #1}}
 \newcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\upshape\color{text} #1}}
+
+\newcommand*{\publicationstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\upshape\color{text}\textit{#1}}}
 
 % For elements of subentry
 \newcommand*{\subentrytitlestyle}[1]{{\fontsize{8pt}{1em}\bodyfont\mdseries\color{graytext} #1}}
@@ -289,6 +294,13 @@
 % Defines writer's email (optional)
 % Usage: \email{<email adress>}
 \newcommand*{\email}[1]{\def\@email{#1}}
+
+\newcommand*{\gscholar}[1]{\def\@gscholar{#1}}
+\newcommand*{\orcid}[1]{\def\@orcid{#1}}
+\newcommand*{\researchgate}[1]{\def\@researchgate{#1}}
+\newcommand*{\scopus}[1]{\def\@scopus{#1}}
+
+
 
 % Defines writer's homepage (optional)
 % Usage: \homepage{<url>}
@@ -510,6 +522,29 @@
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
           \href{https://www.xing.com/profile/\@xing}{\faXingSquare\acvHeaderIconSep\@xing}
+        }%
+      \newline\ifthenelse{\isundefined{\@gscholar}}%
+        {}%
+        {%
+          \href{https://scholar.google.com/citations?user=\@gscholar=en}{\aiGoogleScholar\acvHeaderIconSep Google Scholar: \@gscholar}
+        }%
+      \ifthenelse{\isundefined{\@researchgate}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://www.researchgate.net/profile/\@scopus}{\aiResearchGate\acvHeaderIconSep Research Gate: \@researchgate}
+        }%
+      \ifthenelse{\isundefined{\@orcid}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://orcid.org/\@orcid}{\aiOrcid\acvHeaderIconSep ORCID: \@orcid}
+        }%
+      \ifthenelse{\isundefined{\@scopus}}%
+        {}%
+        {%
+          \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
+          \href{https://www.scopus.com/authid/detail.uri?authorId=\@scopus}{\aiScopusSquare\acvHeaderIconSep Scopus ID: \@scopus}
         }%
       \ifthenelse{\isundefined{\@extrainfo}}%
         {}%
